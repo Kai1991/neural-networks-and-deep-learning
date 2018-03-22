@@ -38,7 +38,7 @@ class Network(object):
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
         for b, w in zip(self.biases, self.weights):
-            a = sigmoid(np.dot(w, a)+b)
+            a = sigmoid(np.dot(w, a)+b) #np.dot:矩阵成绩
         return a
 
     def SGD(self, training_data, epochs, mini_batch_size, eta,
@@ -131,11 +131,12 @@ class Network(object):
         \partial a for the output activations."""
         return (output_activations-y)
 
-#### Miscellaneous functions
+#### Miscellaneous functions  S型激活函数
 def sigmoid(z):
     """The sigmoid function."""
     return 1.0/(1.0+np.exp(-z))
 
+####   S型激活函数的导数
 def sigmoid_prime(z):
     """Derivative of the sigmoid function."""
     return sigmoid(z)*(1-sigmoid(z))
